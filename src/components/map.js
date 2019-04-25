@@ -7,7 +7,7 @@ const Marker = ({ text }) => (
     style={{
       color: "white",
       background: "grey",
-      padding: "15px 15px",
+      padding: "10px 10px",
       display: "inline-flex",
       textAlign: "center",
       alignItems: "center",
@@ -18,7 +18,7 @@ const Marker = ({ text }) => (
     {text}
   </div>
 );
-
+console.log(GoogleMapReact);
 class Map extends React.Component {
   static defaultProps = {
     center: {
@@ -31,9 +31,10 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div id="map" className="Map bg-primary">
+      <div className="Map bg-primary">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyB6L8wEWqi-SCgiQQwDFuzlfx3c95lnJ_0" }}
+          id="map"
+          bootstrapURLKeys={{ key: "AIzaSyDhn-OzNyFepv3Jp0bsBPZeY30kvGugHo4" }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           center={this.props.newCenter}
