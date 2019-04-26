@@ -3,7 +3,7 @@ import Map from "./components/map";
 import Header from "./components/header";
 import "./assets/App.css";
 import axios from "axios";
-import Gallery from "./components/gallery";
+import GalleryContainer from "./components/gallery-container";
 
 /* const handleRequest = () => {
   var map;
@@ -85,8 +85,8 @@ class App extends React.Component {
     return (
       <div className="Container">
         <Header />
-        <Map newCenter={center} zoom={6} />
-        <Gallery iss_position={center} />
+        <Map newCenter={center} zoom={10} />
+        <GalleryContainer iss_position={center} />
       </div>
     );
   }

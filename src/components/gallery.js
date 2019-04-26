@@ -1,53 +1,49 @@
 import React from "react";
 import axios from "axios";
 
+/* var state = {
+  loading: true,
+  error: null,
+  data: undefined
+}; */
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      lat: props.iss_position.lat,
-      lng: props.iss_position.lng
-    };
   }
-  handleRequest = () => {
-    var url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${
-      this.state.lat
-    },${
-      this.state.lng
-    }&radius=270000&type=locality&key=AIzaSyDhn-OzNyFepv3Jp0bsBPZeY30kvGugHo4`;
-    axios
-      .get(url)
-      .then(response => {
-        //Convert position coordinates strings to number and assign to this.state
-        if (response.data.results.length > 0) {
-          console.log(response.data.results);
-          console.log(response.data.results[0].name);
-          console.log(response.data.results[1].name);
-        } else {
-          console.log(response);
-          console.log("No hay lugares cerca!");
-        }
-      })
-      .catch(error => {
-        // handle error
-        console.log(error);
-      });
-
-    function callback(results, status) {
-      console.log(results);
-      console.log(status);
-    }
+  componentDidMount() {
+    this.getMedia();
+  }
+  state = {
+    src: ""
   };
   componentWillReceiveProps(props) {
-    this.setState({
-      lat: props.iss_position.lat,
-      lng: props.iss_position.lng
-    });
+    this.getMedia();
   }
+  getMedia = () => {
+    let cities = this.props.cities;
+    console.log(cities);
+    let qUrl = "";
+    for (var q in cities) {
+      qUrl += q + "+";
+    }
+    qUrl = qUrl.substring(0, qUrl.length - 1);
+    console.log(qUrl);
+
+    let url = `https://pixabay.com/api/?key=12293791-e1438841e69971c4d4ccb4944&category=places&q=${qUrl}&category=places&order=popular&per_page=15&page=1`;
+    axios.get(url).then(response => {
+      let data = response.data.hits[0].webformatURL;
+      this.setState({
+        src: data
+      });
+    });
+  };
+
   render() {
-    this.handleRequest();
-    return <div />;
+    return (
+      <div>
+        <img src={this.state.src} />
+      </div>
+    );
   }
 }
-
 export default Gallery;
