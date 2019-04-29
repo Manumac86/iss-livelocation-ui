@@ -1,0 +1,18 @@
+image: node
+
+# Cache node modules - speeds up future builds
+cache:
+  paths:
+  - node_modules
+
+stages:
+- build
+
+production:
+  stage: build
+  script:
+    - npm install # Install all dependencies
+    - npm run build:prod # Build for prod
+  
+  only:
+    - master # Only run on master branch
