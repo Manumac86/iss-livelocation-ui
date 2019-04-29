@@ -1,0 +1,38 @@
+.Gallery-List{
+    margin: 0;
+    padding: 0;
+}
+.Gallery-Item {
+    list-style: none;  
+    padding: 0;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    
+}
+
+.Gallery-Error {
+    background-color: rgb(66, 187, 228);
+    color: white;
+    padding: 2em 0 0 0;
+    text-align: center;
+}
+
+.Gallery-Error p {
+    margin-bottom: 2em;
+}
+
+.Gallery-Title{
+    bottom: 0;
+    color:rgb(255, 255, 255); 
+    position: relative;
+    padding: 0 10px 10px 0;
+}
+.Gallery-Title p{
+    margin: 0;
+}
+.Gallery-Image{
+    width: cover center center;
+    overflow: hidden;
+}

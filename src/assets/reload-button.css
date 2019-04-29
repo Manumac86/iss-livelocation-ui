@@ -1,0 +1,16 @@
+.Reload-Button {
+    
+    width: 100%;
+}
+.Reload-Button button {
+    border: none;
+    color: white;
+    font-size: 2em;
+    height: 80px;
+    width: 100%;
+    background-color: green;
+}
+.Reload-Button button:hover {
+    box-shadow: 3px 3px 3px 10px gray;
+    background-color: rgb(82, 156, 82);
+}

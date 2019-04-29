@@ -4,36 +4,8 @@ import Header from "./components/header";
 import "./assets/App.css";
 import axios from "axios";
 import GalleryContainer from "./components/gallery-container";
+import ReloadButton from './components/reload-button';
 
-/* const handleRequest = () => {
-  var map;
-  var service;
-  initialize();
-
-  function initialize() {
-    var example = new google.maps.LatLng(-28, -65);
-
-    map = new google.maps.Map(document.getElementById("map"), {
-      center: example,
-      zoom: 8
-    });
-
-    var request = {
-      location: example,
-      radius: "27000",
-      type: ["locality"]
-    };
-
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
-  }
-
-  function callback(results, status) {
-    console.log(results);
-    console.log(status);
-  }
-};
-handleRequest(); */
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -69,24 +41,17 @@ class App extends React.Component {
     this.requestIssPosition();
   };
 
-  componentDidUpdate() {
-    setTimeout(() => {
-      this.handleReload();
-    }, 10000);
-  }
-
   render() {
     var center = {
       lat: this.state.location.latitude,
       lng: this.state.location.longitude
     };
-
-    /*  this.handleReload(center, map); */
     return (
       <div className="Container">
         <Header />
-        <Map newCenter={center} zoom={10} />
-        <GalleryContainer iss_position={center} />
+        <Map newCenter={center} zoom={3} />
+        <ReloadButton handleReload={this.handleReload}></ReloadButton>
+        <GalleryContainer iss_position={this.state.location} />
       </div>
     );
   }

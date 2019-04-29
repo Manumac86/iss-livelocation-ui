@@ -6,19 +6,19 @@ const Marker = ({ text }) => (
   <div
     style={{
       color: "white",
-      background: "grey",
-      padding: "10px 10px",
+      background: "rgba(155, 0, 0, .6)",
+      boxShadow: "0 0 40px 40px rgba(155, 0, 0, .4)",
+      padding: "15px 15px",
       display: "inline-flex",
       textAlign: "center",
       alignItems: "center",
       justifyContent: "center",
-      borderRadius: "100%"
+      borderRadius: "50%"
     }}
   >
     {text}
   </div>
 );
-console.log(GoogleMapReact);
 class Map extends React.Component {
   static defaultProps = {
     center: {
