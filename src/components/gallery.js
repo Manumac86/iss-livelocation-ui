@@ -2,6 +2,12 @@ import React from "react";
 import axios from "axios";
 import GalleryItems from "./gallery-items";
 
+/**
+ * Renders the GalleryItems Component
+ * Get the photos based on the [cities] nearby ISS Position. 
+ * @class Gallery
+ * @extends {React.Component}
+ */
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -14,11 +20,10 @@ class Gallery extends React.Component {
     };
   }
 
-  // When Gallery receive new props, updates the component
   componentWillReceiveProps(props) {
     let fetchedCities = [];
 
-    // ISS takes 90 minutes to orbit Earth, so this expire cities that were fetched more than 30 min (1800000 ms) ago
+    // ISS takes 90 minutes to orbit Earth, so this expire [cities] that were fetched more than 30 min (1800000 ms) ago
     this.state.fetchedCities.forEach(function (city) {
       if (city.time + 1800000 > new Date().getTime()) {
         //if city values have less than 30 min, add the new city to fetchedCities. 
@@ -33,7 +38,7 @@ class Gallery extends React.Component {
     }, this.loopCities);
   }
 
-  // Loop through each city in "cities" and fetch images based on the city name. 
+  // Loop through each city in [cities] and fetch images based on the city name. 
   loopCities = () => {
     this.state.cities.forEach(city => this.fetchData(city));
   }
@@ -41,7 +46,8 @@ class Gallery extends React.Component {
   /**
    * Fetch images from API, if the request is unique within the last 30 min
    * @param city [Object]
-   * @return  {void}  [Set State for fetched images]
+   * @return  {}  Set State for fetched images
+   * @private
    */
   fetchData = (city) => {
     // alreadyFetched must be false in order to fetch pictures. When is true, it means that pictures have been already requested. 
@@ -79,8 +85,9 @@ class Gallery extends React.Component {
         return
       }
       let newSrc = this.state.src.concat(response.data.hits);
+      let slicedSrc = newSrc.slice(newSrc.length - 15, newSrc.length).reverse();
       this.setState({
-        src: newSrc,
+        src: slicedSrc,
         loading: false,
         error: null
       })

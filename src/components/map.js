@@ -1,25 +1,21 @@
 import React from "react";
 import "../assets/map.css";
 import GoogleMapReact from "google-map-react";
+import Marker from './marker';
 
-const Marker = ({ text }) => (
-  <div
-    style={{
-      color: "white",
-      background: "rgba(155, 0, 0, .6)",
-      boxShadow: "0 0 40px 40px rgba(155, 0, 0, .4)",
-      padding: "15px 15px",
-      display: "inline-flex",
-      textAlign: "center",
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: "50%"
-    }}
-  >
-    {text}
-  </div>
-);
+/**
+ * Map React Component. Render the Map from Google Maps and the Marker inside. 
+ *
+ * @class Map
+ * @extends {React.Component}
+ */
 class Map extends React.Component {
+  /**
+   * Define statics default props in case the fetch to ISS position fails.
+   * @static
+   * @memberof Map
+   * @private
+   */
   static defaultProps = {
     center: {
       lat: -40,
@@ -43,7 +39,7 @@ class Map extends React.Component {
           <Marker
             lat={this.props.newCenter.lat}
             lng={this.props.newCenter.lng}
-            text="ISS"
+            text={"ISS"}
           />
         </GoogleMapReact>
       </div>

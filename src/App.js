@@ -1,11 +1,16 @@
 import React from "react";
 import Map from "./components/map";
 import Header from "./components/header";
-import "./assets/App.css";
 import axios from "axios";
 import GalleryContainer from "./components/gallery-container";
 import ReloadButton from './components/reload-button';
 
+/**
+ * App Component. Renders App components and handles ISS position requests
+ *
+ * @class App
+ * @extends {React.Component}
+ */
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,13 +19,19 @@ class App extends React.Component {
     };
   }
 
+  /**
+   * Once the App component is mounted, do the ISS Position fetch 
+   * @memberof App
+   * @private (documentation pourpose)
+   */
   componentDidMount() {
     this.requestIssPosition();
   }
 
   /**
+   * Request ISS position coordinates
    * @function requestIssPosition
-   * @desc: request ISS position coordinates
+   * @private (documentation pourpose)
    */
   requestIssPosition = () => {
     axios
@@ -32,16 +43,24 @@ class App extends React.Component {
         this.setState({ location });
       })
       .catch(error => {
-        // handle error
+        // To Do: Show an Error Message to User if the fetch fails
         console.log(error);
       });
   };
 
+  /**
+   * Handles the reload button action. Fetch the new ISS position.
+   * @memberof App
+   */
   handleReload = () => {
     this.requestIssPosition();
   };
-
   render() {
+
+    /**
+     * Object to be passed as prop to the Map Component with lat and lng parameters.
+     * @private (documentation pourpose)
+     */
     var center = {
       lat: this.state.location.latitude,
       lng: this.state.location.longitude
@@ -50,7 +69,7 @@ class App extends React.Component {
       <div className="Container">
         <Header />
         <Map newCenter={center} zoom={3} />
-        <ReloadButton handleReload={this.handleReload}></ReloadButton>
+        <ReloadButton handleClick={this.handleReload}></ReloadButton>
         <GalleryContainer iss_position={this.state.location} />
       </div>
     );

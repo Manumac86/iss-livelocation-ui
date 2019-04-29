@@ -11,7 +11,7 @@ module.exports = env => {
 
   return {
     entry: {
-      "iss-livelocation-ui": path.resolve(__dirname, "index.js")
+      "iss-livelocation-ui": path.resolve(__dirname, "./src/index.js")
     },
     output: {
       path: path.resolve(__dirname, "dist"),

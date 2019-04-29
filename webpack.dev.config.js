@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    "iss-livelocation-ui": path.resolve(__dirname, "index.js")
+    "iss-livelocation-ui": path.resolve(__dirname, "./src/index.js")
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -14,8 +14,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // test: que tipo de archivo quiero reconocer,
-        // use: que loader se va a encargar del archivo
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         use: {

@@ -1,0 +1,11 @@
+.Marker {
+    align-items: center;
+    background: rgba(155, 0, 0, .6);
+    border-radius: 50%;
+    box-shadow: 0 0 40px 40px rgba(155, 0, 0, .4);
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    padding: 15px 15px;
+    text-align: center;
+}
