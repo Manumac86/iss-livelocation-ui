@@ -55,7 +55,7 @@ module.exports = env => {
             options: {
               limit: 10000,
               fallback: "file-loader",
-              name: "images/[name].[hash].[ext]"
+              name: "images/[name].[ext]"
             }
           }
         }
