@@ -12,22 +12,17 @@ stages:
 
 test:
   stage: test
-  script: 
-    - echo "Running tests"
-    - npm run test
+  script: echo "Running tests"
 
 build:
   stage: build
-  script: 
-    - echo "Building the app"
+  script: echo "Building the app"
     - npm install
     - npm run build
-    - echo "Build Done!""
 
 deploy_staging:
   stage: deploy
-  script:
-    - echo "Deploy to staging server"
+  script: echo "Deploy to staging server"
   environment:
     name: staging
     url: https://stagiss.manumac.com.ar
@@ -36,8 +31,7 @@ deploy_staging:
 
 deploy_prod:
   stage: deploy
-  script:
-    - echo "Deploy to production server"
+  script: echo "Deploy to production server"
   environment:
     name: production
     url: https://iss.manumac.com.ar
