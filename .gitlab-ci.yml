@@ -11,6 +11,7 @@ stages:
 production:
   stage: build
   script:
+    - echo "Build for Production Started..."
     - npm install # Install all dependencies
     - npm run build:prod # Build for prod
   
