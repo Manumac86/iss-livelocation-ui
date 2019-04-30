@@ -25,6 +25,7 @@ class Gallery extends React.Component {
         fetchedCities.push(city);
       }
     });
+
     // Set fetchedCities updated state and save props received to new state.
     // When state is updated, call loopCites 
     this.setState({
@@ -33,15 +34,19 @@ class Gallery extends React.Component {
     }, this.loopCities);
   }
 
-  // Loop through each city in [cities] and fetch images based on the city name. 
+  /**
+   * Loop through each city in [cities] and fetch images based on the city name. 
+   */
   loopCities = () => {
     this.state.cities.forEach(city => this.fetchData(city));
   }
 
-  // Fetch images from API, if the request is unique within the last 30 min
-  // @param city [Object]
-  // @return  {}  Set State for fetched images
-  // @private
+
+  /**
+   * Fetch images from API, if the request is unique within the last 30 min
+   * @param city [Object]
+   * @return  {}  Set State for fetched images
+   */
   fetchData = (city) => {
     // alreadyFetched must be false in order to fetch pictures. When is true, it means that pictures have been already requested. 
     let alreadyFetched = false, fetchedCities = this.state.fetchedCities;
@@ -77,8 +82,8 @@ class Gallery extends React.Component {
       if (!response.data.hits.length) {
         return
       }
-      let newSrc = this.state.src.concat(response.data.hits);
-      let slicedSrc = newSrc.slice(newSrc.length - 15, newSrc.length).reverse();
+      let newSrc = this.state.src.concat(response.data.hits); // Save all the responses in one array
+      let slicedSrc = newSrc.slice(newSrc.length - 15, newSrc.length).reverse(); // Get the latest 15 results in order (Newests First)
       this.setState({
         src: slicedSrc,
         loading: false,

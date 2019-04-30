@@ -16,6 +16,11 @@ class GalleryItems extends React.Component {
             this.fetchDefault();
         }
     }
+
+    /**
+     * Fetch a collection of Sea Pictures to show when there are no cities around ISS Position
+     * Set the state of api with the response. 
+     */
     fetchDefault = () => {
         const url = `https://pixabay.com/api/?key=12293791-e1438841e69971c4d4ccb4944&q=sea+sky&order=latest&per_page=15&page=1`;
         axios.get(url).then(response => {
@@ -28,6 +33,10 @@ class GalleryItems extends React.Component {
             this.toggleState();
         });
     }
+
+    /**
+     * Avoid multiple request to the same endpoint within 1 sec, to prevent error responses
+     */
     toggleState = () => {
         this.setState({
             requestEnabled: false

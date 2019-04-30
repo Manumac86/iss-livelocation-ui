@@ -29,9 +29,11 @@ class GalleryContainer extends React.Component {
     );
   }
 
-  //Toggle a requestEnabled state to prevent multiple requests to cities
-  //if other request were done within the last 10 sec. After that, enables again the requests
-  //@memberof GalleryContainer 
+  /**
+   * Toggle a requestEnabled state to prevent multiple requests to cities
+   * if other request were done within the last 10 sec. After that, enables again the requests
+   * @memberof GalleryContainer 
+   */
   toggleState = () => {
     this.setState({
       requestEnabled: false
@@ -41,9 +43,12 @@ class GalleryContainer extends React.Component {
     }), 1000)
   }
 
-
-  //Do the GeoDB Cities API requests to get cities near ISS position
+  /**
+   * Fetch nearby ISS position cities from the GeoDB Cities API.
+   */
   handleRequest = () => {
+    // Set format of position to make the correct request. 
+    // To Do: Separate formatting in a new method.  
     var lat = (this.state.lat > 0) ? this.state.lat.toString().replace(',', '.') : this.state.lat.toString().replace(',', '.');
     var lng = (this.state.lng > 0) ? "%2B" + this.state.lng.toString().replace(',', '.') : this.state.lng.toString().replace(',', '.');
     var url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?location=${lat}${lng}&radius=17000&languageCode=en`;
@@ -62,11 +67,9 @@ class GalleryContainer extends React.Component {
     }
 
 
-    //Request the cities nearby ISS position
-    //@param   {Object}  authOptions  Config Options for axios request
-    //@return  {} Not returning anything. If the request hava a valid response, set an array with [citiesNames] to [cities] state.
-    //@private
-
+    // Request the cities nearby ISS position
+    // @param   {Object}  authOptions  Config Options for axios request
+    // @return  If the request hava a valid response, set an array with [citiesNames] to [cities] state.
     axios(authOptions)
       .then(response => {
         let citiesNames = response.data.data.map(city => city);

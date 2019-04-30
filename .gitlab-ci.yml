@@ -6,14 +6,41 @@ cache:
   - node_modules
 
 stages:
-- build
+  - test
+  - build
+  - deploy
 
-production:
+test:
+  stage: test
+  script: 
+    - echo "Running tests"
+    - npm run test
+
+build:
   stage: build
+  script: 
+    - echo "Building the app"
+    - npm install
+    - npm run build
+    - echo "Build Done!""
+
+deploy_staging:
+  stage: deploy
   script:
-    - echo "Build for Production Started..."
-    - npm install # Install all dependencies
-    - npm run build:prod # Build for prod
-  
+    - echo "Deploy to staging server"
+  environment:
+    name: staging
+    url: https://stagiss.manumac.com.ar
   only:
-    - master # Only run on master branch
+  - master
+
+deploy_prod:
+  stage: deploy
+  script:
+    - echo "Deploy to production server"
+  environment:
+    name: production
+    url: https://iss.manumac.com.ar
+  when: manual
+  only:
+  - master

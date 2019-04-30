@@ -19,8 +19,11 @@ class App extends React.Component {
     this.requestIssPosition();
   }
 
-  // Request ISS position coordinates
-  // @function requestIssPosition
+  /**
+   * Request ISS position coordinates
+   * @function requestIssPosition 
+   * 
+   */
   requestIssPosition = () => {
     axios
       .get("http://api.open-notify.org/iss-now.json")
@@ -36,10 +39,14 @@ class App extends React.Component {
       });
   };
 
-  // Handles the reload button action. Fetch the new ISS position.
+  /**
+   * Handles the reload button action. 
+   * Fetch the new ISS position.
+   */
   handleReload = () => {
     this.requestIssPosition();
   };
+
   render() {
     //Object to be passed as prop to the Map Component with lat and lng parameters.
     var center = {
