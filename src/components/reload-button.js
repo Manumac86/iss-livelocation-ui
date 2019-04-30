@@ -1,12 +1,7 @@
 import React from 'react';
 import '../assets/reload-button.css';
 
-/**
- * Reload Button for reload the ISS Position and the Pictures
- *
- * @param {function} props function to handle click action
- * @returns
- */
+// Reload Button for reload the ISS Position and the Pictures
 function ReloadButton(props) {
     return (
         <div className="Reload-Button">
@@ -15,6 +10,6 @@ function ReloadButton(props) {
                 Reload
             </button>
         </div>
-    )
+    );
 }
 export default ReloadButton;

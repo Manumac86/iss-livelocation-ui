@@ -78,7 +78,7 @@ class GalleryItems extends React.Component {
                     )
                 })}
             </ul>
-        )
+        );
     }
 }
 export default GalleryItems;

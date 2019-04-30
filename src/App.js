@@ -5,12 +5,7 @@ import axios from "axios";
 import GalleryContainer from "./components/gallery-container";
 import ReloadButton from './components/reload-button';
 
-/**
- * App Component. Renders App components and handles ISS position requests
- *
- * @class App
- * @extends {React.Component}
- */
+// App Component. Renders App components and handles ISS position requests
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,20 +14,13 @@ class App extends React.Component {
     };
   }
 
-  /**
-   * Once the App component is mounted, do the ISS Position fetch 
-   * @memberof App
-   * @private (documentation pourpose)
-   */
+  //Once the App component is mounted, do the ISS Position fetch 
   componentDidMount() {
     this.requestIssPosition();
   }
 
-  /**
-   * Request ISS position coordinates
-   * @function requestIssPosition
-   * @private (documentation pourpose)
-   */
+  // Request ISS position coordinates
+  // @function requestIssPosition
   requestIssPosition = () => {
     axios
       .get("http://api.open-notify.org/iss-now.json")
@@ -48,28 +36,21 @@ class App extends React.Component {
       });
   };
 
-  /**
-   * Handles the reload button action. Fetch the new ISS position.
-   * @memberof App
-   */
+  // Handles the reload button action. Fetch the new ISS position.
   handleReload = () => {
     this.requestIssPosition();
   };
   render() {
-
-    /**
-     * Object to be passed as prop to the Map Component with lat and lng parameters.
-     * @private (documentation pourpose)
-     */
+    //Object to be passed as prop to the Map Component with lat and lng parameters.
     var center = {
       lat: this.state.location.latitude,
       lng: this.state.location.longitude
-    };
+    }
     return (
       <div className="Container">
         <Header />
         <Map newCenter={center} zoom={3} />
-        <ReloadButton handleClick={this.handleReload}></ReloadButton>
+        <ReloadButton handleClick={this.handleReload} />
         <GalleryContainer iss_position={this.state.location} />
       </div>
     );

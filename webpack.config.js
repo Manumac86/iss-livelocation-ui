@@ -1,15 +1,26 @@
 const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
+
 module.exports = env => {
-  const plugins = [new ExtractTextPlugin("css/[name].css")];
+  const plugins = [
+    new ExtractTextPlugin("css/[name].css"),
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html"
+    })
+  ]
 
   if (env.NODE_ENV === "production") {
-    plugins.push(new CleanWebpackPlugin(["dist"], { root: __dirname }));
+    plugins.push(
+      new CleanWebpackPlugin(["dist"], { root: __dirname })
+    )
   }
 
   return {
+
     entry: {
       "iss-livelocation-ui": path.resolve(__dirname, "src/index.js")
     },
@@ -58,9 +69,17 @@ module.exports = env => {
               name: "images/[name].[ext]"
             }
           }
+        },
+        {
+          test: /\.html$/,
+          use: [
+            {
+              loader: "html-loader"
+            }
+          ]
         }
       ]
     },
     plugins
-  };
-};
+  }
+}

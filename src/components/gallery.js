@@ -2,12 +2,7 @@ import React from "react";
 import axios from "axios";
 import GalleryItems from "./gallery-items";
 
-/**
- * Renders the GalleryItems Component
- * Get the photos based on the [cities] nearby ISS Position. 
- * @class Gallery
- * @extends {React.Component}
- */
+
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -43,12 +38,10 @@ class Gallery extends React.Component {
     this.state.cities.forEach(city => this.fetchData(city));
   }
 
-  /**
-   * Fetch images from API, if the request is unique within the last 30 min
-   * @param city [Object]
-   * @return  {}  Set State for fetched images
-   * @private
-   */
+  // Fetch images from API, if the request is unique within the last 30 min
+  // @param city [Object]
+  // @return  {}  Set State for fetched images
+  // @private
   fetchData = (city) => {
     // alreadyFetched must be false in order to fetch pictures. When is true, it means that pictures have been already requested. 
     let alreadyFetched = false, fetchedCities = this.state.fetchedCities;
@@ -104,7 +97,7 @@ class Gallery extends React.Component {
     let images = this.state.src
     return (
       <GalleryItems images={images} />
-    )
+    );
   }
 }
 

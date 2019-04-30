@@ -3,19 +3,9 @@ import "../assets/map.css";
 import GoogleMapReact from "google-map-react";
 import Marker from './marker';
 
-/**
- * Map React Component. Render the Map from Google Maps and the Marker inside. 
- *
- * @class Map
- * @extends {React.Component}
- */
+// Map React Component. Render the Map from Google Maps and the Marker inside. 
 class Map extends React.Component {
-  /**
-   * Define statics default props in case the fetch to ISS position fails.
-   * @static
-   * @memberof Map
-   * @private
-   */
+  //Define statics default props in case the fetch to ISS position fails.
   static defaultProps = {
     center: {
       lat: -40,
