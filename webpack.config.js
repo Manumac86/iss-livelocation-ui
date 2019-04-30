@@ -25,7 +25,7 @@ module.exports = env => {
       "iss-livelocation-ui": path.resolve(__dirname, "src/index.js")
     },
     output: {
-      path: path.resolve(__dirname),
+      path: path.resolve(__dirname, "dist"),
       filename: "js/[name].js",
       publicPath: path.resolve(__dirname),
       chunkFilename: "js/[id].[hash].js"
