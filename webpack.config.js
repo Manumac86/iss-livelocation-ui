@@ -9,7 +9,7 @@ module.exports = env => {
     new ExtractTextPlugin("css/[name].[hash].css"),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
-      filename: "../index.html"
+      filename: "./index.html"
     })
   ]
 
