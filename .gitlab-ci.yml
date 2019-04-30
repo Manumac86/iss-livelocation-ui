@@ -6,9 +6,19 @@ cache:
   - node_modules
 
 stages:
+  - install
   - test
   - build
   - deploy
+
+install-dependencies: 
+  stage: install
+  script: 
+    - npm install
+  artifacts:
+    expire_in: 1hr
+    paths:
+      - node_modules
 
 test:
   stage: test
@@ -16,25 +26,25 @@ test:
 
 build:
   stage: build
+  dependencies: 
+    - install-dependencies
   script: echo "Building the app"
-    - npm install
-    - npm run build
-
-deploy_staging:
+    - npm run build:prod
+  artifacts:
+    expire_in: 1hr
+    paths: 
+      - dist/
+pages: 
   stage: deploy
-  script: echo "Deploy to staging server"
+  dependencies: 
+    - build
+  script: 
+    - mkdir public
+    - mv ./dist* ./public
+  artifacts:
+    paths:
+      - public
   environment:
-    name: staging
-    url: https://stagiss.manumac.com.ar
-  only:
-  - master
-
-deploy_prod:
-  stage: deploy
-  script: echo "Deploy to production server"
-  environment:
-    name: production
-    url: https://iss.manumac.com.ar
-  when: manual
-  only:
-  - master
+    name: stage
+  only: 
+    - master

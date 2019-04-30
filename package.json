@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ISS Live Location Tracker",
   "main": "./src/index.js",
-  "homepage": "https://gitlab.com/manumac86/iss-livelocation-ui#readme",
+  "homepage": "https://manumac86.gitlab.io/iss-livelocation-ui/",
   "scripts": {
     "test": "echo \"ToDo: Create Unit Tests\" && exit 1",
     "build:dev": "webpack-dev-server --config ./webpack.dev.config.js",
