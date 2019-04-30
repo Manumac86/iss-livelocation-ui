@@ -40,11 +40,11 @@ pages:
     - build
   script: 
     - mkdir public
-    - mv ./dist* ./public
+    - mv dist/* public
   artifacts:
     paths:
       - public
   environment:
     name: stage
   only: 
-    - master
+    - branches
