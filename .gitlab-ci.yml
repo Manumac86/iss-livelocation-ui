@@ -30,6 +30,7 @@ build:
     - install-dependencies
   script: echo "Building the app"
     - npm run build:prod
+    - ls -l
   artifacts:
     expire_in: 1hr
     paths: 
@@ -40,7 +41,8 @@ pages:
     - build
   script: 
     - mkdir public
-    - mv dist/* public
+    - ls -l
+    - mv -R dist/* public
   artifacts:
     paths:
       - public
