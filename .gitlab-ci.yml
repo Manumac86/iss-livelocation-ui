@@ -42,7 +42,7 @@ pages:
   script: 
     - mkdir public
     - ls -l
-    - mv -R dist/* public
+    - mv dist/* public
   artifacts:
     paths:
       - public
