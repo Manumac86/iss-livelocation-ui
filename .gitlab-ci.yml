@@ -28,7 +28,7 @@ build:
   stage: build
   dependencies: 
     - install-dependencies
-  script: echo "Building the app"
+  script:
     - npm run build:prod
     - ls -l
   artifacts:
