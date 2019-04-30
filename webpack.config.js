@@ -15,7 +15,7 @@ module.exports = env => {
 
   if (env.NODE_ENV === "production") {
     plugins.push(
-      new CleanWebpackPlugin(["dist"], { root: __dirname })
+      new CleanWebpackPlugin(["data/dist"], { root: __dirname })
     )
   }
 
@@ -25,9 +25,9 @@ module.exports = env => {
       "iss-livelocation-ui": path.resolve(__dirname, "src/index.js")
     },
     output: {
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "data/dist"),
       filename: "js/[name].js",
-      publicPath: path.resolve(__dirname, "dist") + "/",
+      publicPath: path.resolve(__dirname, "data/dist") + "/",
       chunkFilename: "js/[id].[hash].js"
     },
     devServer: {
