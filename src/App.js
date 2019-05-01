@@ -22,7 +22,6 @@ class App extends React.Component {
   /**
    * Request ISS position coordinates
    * @function requestIssPosition 
-   * 
    */
   requestIssPosition = () => {
     axios
@@ -53,6 +52,7 @@ class App extends React.Component {
       lat: this.state.location.latitude,
       lng: this.state.location.longitude
     }
+
     return (
       <div className="Container">
         <Header />

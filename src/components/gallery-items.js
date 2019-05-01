@@ -11,6 +11,7 @@ class GalleryItems extends React.Component {
             requestEnabled: true
         }
     }
+
     componentDidMount() {
         if (!this.props.images[0]) {
             this.fetchDefault();
@@ -18,8 +19,8 @@ class GalleryItems extends React.Component {
     }
 
     /**
-     * Fetch a collection of Sea Pictures to show when there are no cities around ISS Position
-     * Set the state of api with the response. 
+     * Fetch a collection of Sea Pictures to show when there are no photos from cities around ISS Position
+     * Set the state of [api] with the response. 
      */
     fetchDefault = () => {
         const url = `https://pixabay.com/api/?key=12293791-e1438841e69971c4d4ccb4944&q=sea+sky&order=latest&per_page=15&page=1`;
@@ -35,7 +36,7 @@ class GalleryItems extends React.Component {
     }
 
     /**
-     * Avoid multiple request to the same endpoint within 1 sec, to prevent error responses
+     * Avoid multiple request to the same endpoint within 1 sec, to prevent error responses from pixabay API
      */
     toggleState = () => {
         this.setState({
@@ -43,9 +44,11 @@ class GalleryItems extends React.Component {
         });
         setTimeout(() => this.setState({
             requestEnabled: true
-        }), 1000)
+        }), 1000);
     }
+
     render() {
+        // When the Pixabay API doesn't find hits, render 15 photos with the "sea" tag and show a message to the user.  
         if (!this.props.images[0] || !this.state.requestEnabled) {
             return (
                 <div className="Gallery-Error col-12">
@@ -90,4 +93,5 @@ class GalleryItems extends React.Component {
         );
     }
 }
+
 export default GalleryItems;

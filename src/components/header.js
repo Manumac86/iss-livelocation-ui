@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/header.css";
 
+// Header Component. Shows the App Title and Description.
 class Header extends React.Component {
   render() {
     return (
