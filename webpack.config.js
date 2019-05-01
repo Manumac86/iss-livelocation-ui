@@ -20,7 +20,6 @@ module.exports = env => {
   }
 
   return {
-
     entry: {
       "iss-livelocation-ui": path.resolve(__dirname, "src/index.js")
     },
