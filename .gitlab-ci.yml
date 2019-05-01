@@ -47,6 +47,6 @@ pages:
     paths:
       - public
   environment:
-    name: stage
+    name: production
   only: 
     - branches
