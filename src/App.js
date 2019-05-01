@@ -26,11 +26,11 @@ class App extends React.Component {
    */
   requestIssPosition = () => {
     axios
-      .get("http://api.open-notify.org/iss-now.json")
+      .get("https://api.wheretheiss.at/v1/satellites/25544")
       .then(response => {
         //Convert position coordinates strings to number and assign to this.state
-        location.latitude = parseFloat(response.data.iss_position.latitude);
-        location.longitude = parseFloat(response.data.iss_position.longitude);
+        location.latitude = parseFloat(response.data.latitude);
+        location.longitude = parseFloat(response.data.longitude);
         this.setState({ location });
       })
       .catch(error => {
