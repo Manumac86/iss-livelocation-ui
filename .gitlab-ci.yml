@@ -47,6 +47,8 @@ pages:
     paths:
       - public
   environment:
-    name: production
+    name: stage
   only: 
     - branches
+  except:
+    - master

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/marker.css'
 
-//Marker UI for the ISS Position on the Map
+// Marker UI for the ISS Position on the Map
 function Marker(props) {
     return (
         <div className="Marker">
@@ -9,4 +9,5 @@ function Marker(props) {
         </div>
     );
 }
+
 export default Marker;

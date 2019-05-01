@@ -17,7 +17,6 @@ class Gallery extends React.Component {
 
   componentWillReceiveProps(props) {
     let fetchedCities = [];
-
     // ISS takes 90 minutes to orbit Earth, so this expire [cities] that were fetched more than 30 min (1800000 ms) ago
     this.state.fetchedCities.forEach(function (city) {
       if (city.time + 1800000 > new Date().getTime()) {
@@ -40,7 +39,6 @@ class Gallery extends React.Component {
   loopCities = () => {
     this.state.cities.forEach(city => this.fetchData(city));
   }
-
 
   /**
    * Fetch images from API, if the request is unique within the last 30 min
@@ -66,6 +64,7 @@ class Gallery extends React.Component {
       city: city.city,
       time: new Date().getTime()
     });
+
     // Update the state of fetchesCities
     this.setState({
       error: null,
@@ -95,7 +94,6 @@ class Gallery extends React.Component {
         loading: false
       });
     });
-
   }
 
   render() {

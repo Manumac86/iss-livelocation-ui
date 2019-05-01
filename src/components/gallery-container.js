@@ -15,7 +15,6 @@ class GalleryContainer extends React.Component {
     };
   }
 
-
   // Set the state for ISS position when props are received
   // and calls the request method to get the cities. 
   // props received ISS Location from App Component
@@ -60,13 +59,10 @@ class GalleryContainer extends React.Component {
         "X-RapidAPI-Key": "374f29d493msh59490e39c22b678p13024djsn81c1ae804e5d"
       }
     }
-
     //Checks if requestEnabled is true or false to avoid duplicated requests
     if (!this.state.requestEnabled) {
       return
     }
-
-
     // Request the cities nearby ISS position
     // @param   {Object}  authOptions  Config Options for axios request
     // @return  If the request hava a valid response, set an array with [citiesNames] to [cities] state.
@@ -82,7 +78,6 @@ class GalleryContainer extends React.Component {
         // To Do: Display an Error Message to the User
         console.log(error);
       });
-
   };
 
   render() {
