@@ -20,7 +20,7 @@ class Map extends React.Component {
       <div className="Map bg-primary">
         <GoogleMapReact
           id="map"
-          bootstrapURLKeys={{ key: "AIzaSyDhn-OzNyFepv3Jp0bsBPZeY30kvGugHo4" }}
+          bootstrapURLKeys={{ key: "AIzaSyB6L8wEWqi-SCgiQQwDFuzlfx3c95lnJ_0" }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           center={this.props.newCenter}
