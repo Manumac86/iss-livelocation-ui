@@ -50,5 +50,3 @@ pages:
     name: stage
   only: 
     - branches
-  except:
-    - master
