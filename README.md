@@ -4,7 +4,7 @@ This document describes the Components, Methods and APIs used within the app.
 
 ## Introduction
 ISS LiveLocation Tracker ReactJS to build the User Interface and Webpack to compile, build and optimization for Dev and Prod environments.
-The Demo App is available in [ISS Manumac Website][14].
+The Demo App is available in [DEMO ISS Website][14].
 
 ## Use
 The App prints a Marker within a Google Map using the current ISS Position and search Photos (in following releases will fetch videos too) from the Cities nearby to ISS position within a 600km2 area and show them in a Gallery below the map.
@@ -19,7 +19,7 @@ The project is hosted in this [GitLab.com Repo][15].
 GitLab allow to deploy projects within GitLab Pages. The project has Pipelines configured to run build for Staging and deploy all branches except _master_ to GitLab Pages automatically.
 This version is available from [Stage Gitlab Pages ISS Live Location][17]
 Also, an external Deploy Service (DeployHQ) was configurated for Automatic Deploys from _master_ branch to a static server when _master_ is pushed. 
-The production version of this app is in [ISS Manumac Website][16]. 
+The production version of this app is in [DEMO ISS Website][16]. 
 
 ## Tests
 UI test were made but for time issues I couldn't create Unit Tests and Coverage Reports for this App. Is a Tech Debt for the next sprint.
@@ -113,11 +113,11 @@ Reload Button for reload the ISS Position and the Pictures. React Pure Component
 
 [13]: https://github.com/axios/axios
 
-[14]: https://iss.manumac.com.ar/
+[14]: https://iss-live-location.web.app/
 
 [15]: https://gitlab.com/manumac86/iss-livelocation-ui
 
-[16]: https://iss.manumac.com.ar
+[16]: https://iss-live-location.web.app
 
 [17]: https://manumac86.gitlab.io/iss-livelocation-ui/
 

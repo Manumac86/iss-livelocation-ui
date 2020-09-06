@@ -7,7 +7,8 @@
 # Production
 /build
 /dist
-
+firebase-debug.log
+.firebase/
 # misc
 .DS_Store
 .env.local
