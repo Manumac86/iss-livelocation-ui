@@ -1,5 +1,5 @@
 # ISS LiveLocation Tracker
-This project is part of Olapic's tech test to the FrontEnd Developer position. 
+This project is a DEMO to track ISS Live Position and look for photos of the major cities around that position.
 This document describes the Components, Methods and APIs used within the app.
 
 ## Introduction
