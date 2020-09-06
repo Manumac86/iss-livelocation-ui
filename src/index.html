@@ -29,5 +29,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBKOjknhqPQ_-wNwg4C3BZFLB53sGdy86w",
+    authDomain: "iss-live-location.firebaseapp.com",
+    databaseURL: "https://iss-live-location.firebaseio.com",
+    projectId: "iss-live-location",
+    storageBucket: "iss-live-location.appspot.com",
+    messagingSenderId: "770562971767",
+    appId: "1:770562971767:web:734d17307bf5a36d2ece72",
+    measurementId: "G-0TEJ4M94JS"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   </body>
 </html>
